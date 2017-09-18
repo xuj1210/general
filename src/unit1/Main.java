@@ -1,4 +1,4 @@
-package unit1.examples;
+package unit1;
 
 public class Main {
 
