@@ -1,8 +1,8 @@
-package unit1;   // EDIT: set to appropriate lesson unit for this program
-import codehs.*; // utilize all code in the codehs package
+package unit1;
+import codehs.*;
 
 
-public class Hypotenuse extends ConsoleProgram{  //EDIT: change the class name to match the file name
+public class Hypotenuse extends ConsoleProgram{
 
     public void run() {
         //Create sideA, sideB, sideC, hypotenuse variable
