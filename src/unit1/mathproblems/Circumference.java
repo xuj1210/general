@@ -1,17 +1,17 @@
-package unit1;
+package unit1.mathproblems;
 import codehs.*;
 
 
 public class Circumference extends ConsoleProgram{
 
     public void run() {
-        //What is the radius
+        // Get the radius
         double radius = readDouble("What is the radius: ");
 
-        //Calculate circumference
+        // Calculate circumference
         double circumference = 2 * Math.PI * radius;
 
-        //Output answer
+        // Output answer
         System.out.println("The circumference of the circle is " + circumference);
 
     }
