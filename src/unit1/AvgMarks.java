@@ -1,7 +1,9 @@
-package unit1;
-import codehs.*;
+package unit1;   // EDIT: set to appropriate lesson unit for this program
 
-public class AvgMarks extends ConsoleProgram{
+import codehs.*;  // utilize all code in the codehs package
+
+
+public class AvgMarks extends codehs.ConsoleProgram{
 
     public void run() {
 
