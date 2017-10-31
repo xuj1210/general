@@ -1,12 +1,10 @@
-package unit1;   // EDIT: set to appropriate lesson unit for this program
+package unit1;
+import codehs.*;
 
-import codehs.*;  // utilize all code in the codehs package
 
-
-public class AvgMarks extends codehs.ConsoleProgram{
+public class AvgMarks extends ConsoleProgram{
 
     public void run() {
-
         //CREATE mark1,mark2,mark3,mark4
         double mark1, mark2, mark3, mark4;
 
@@ -18,5 +16,5 @@ public class AvgMarks extends codehs.ConsoleProgram{
         double avg = (mark1 + mark2 + mark3 + mark4) / 4;
 
         System.out.println("Your average is " + avg);
-
-      }
+    }
+}
