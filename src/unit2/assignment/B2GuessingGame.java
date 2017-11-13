@@ -12,7 +12,7 @@ public class B2GuessingGame extends ConsoleProgram {
         int userGuess = readInt("Guess a number: ");
         int counter = 1;
 
-        //While loop to guess
+        //While loop for user guesses
         while(counter < 6){
             if(counter == 5){
                 System.out.println("Nice Try");
