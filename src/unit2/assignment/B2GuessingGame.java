@@ -14,6 +14,12 @@ public class B2GuessingGame extends ConsoleProgram {
             if(userGuess > secretNumber){
                 System.out.println("Too high, guess again!");
             }
+            else if(userGuess < secretNumber){
+                System.out.println("Too low, guess again!");
+            }
+            else{
+                counter++;
+            }
         }
 
     }
