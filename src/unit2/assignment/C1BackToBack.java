@@ -8,6 +8,6 @@ public class C1BackToBack extends ConsoleProgram {
         String userString = readLine("Enter a string: ");
         String lastLetter = userString.substring(userString.length());
 
-        System.out.println(lastLetter + userString);
+        System.out.println(lastLetter + userString + lastLetter);
     }
 }
