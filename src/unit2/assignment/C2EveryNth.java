@@ -2,7 +2,7 @@ package unit2.assignment;
 import codehs.*;
 /*
 A program that gets a string and integer from the user, and prints every Nth letter of the
-word, where N is the integer given by the user
+word, where N is the integer given by the user.
  */
 
 public class C2EveryNth extends ConsoleProgram {
