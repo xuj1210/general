@@ -1,6 +1,10 @@
 package unit2.assignment;
 import codehs.*;
-
+/*
+A program that takes a string input from the user and adds the last letter of that string to
+the front and back of the string.
+Author: Joshua Xu
+ */
 
 public class C1BackToBack extends ConsoleProgram {
 
