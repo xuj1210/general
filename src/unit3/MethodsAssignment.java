@@ -8,7 +8,13 @@ public class MethodsAssignment {
         System.out.println("Expected result: True");
         System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
     }
-    
+
+    /**
+     * @param num1 First integer input
+     * @param num2 Second integer input
+     * @return Lowest Common Multiple of the two integers
+     */
+
     public static int lcm(int num1, int num2){
         int lcm;
         int counter;
@@ -39,7 +45,6 @@ public class MethodsAssignment {
 
 
     /**
-     *
      * @param num1 First integer input
      * @param num2 Second integer input
      * @param num3 Third integer input
