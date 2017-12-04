@@ -4,6 +4,12 @@ import java.util.InputMismatchException;
 
 public class MethodsAssignment {
     public static void main(String[] args){
+        //Tests for lcm
+        System.out.println("Test inputs: 8, 10");
+        System.out.println("Expected result: 40");
+        System.out.println("Actual result: " + lcm(8, 10));
+
+        //Tests for evenlySpaced
         System.out.println("Test 1: Inputs: 1, 2, 3");
         System.out.println("Expected result: True");
         System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
