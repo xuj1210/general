@@ -1,6 +1,9 @@
 package unit2.assignment;
 import codehs.*;
-
+/*
+This program finds the divisors of an integer inputted by the user and prints them out
+Author: Joshua Xu
+*/
 
 public class B3DivisorCount extends ConsoleProgram {
 
