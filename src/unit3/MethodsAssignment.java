@@ -33,6 +33,7 @@ public class MethodsAssignment {
         }catch(InputMismatchException i){
             System.out.println("Must input integers only. " + i.getMessage());
         }
+    //Return isTrue for the program to use
     return isTrue;
     }
 }
