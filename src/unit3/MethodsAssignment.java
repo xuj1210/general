@@ -9,6 +9,17 @@ public class MethodsAssignment {
         System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
     }
 
+    public static int lcm(int num1, int num2){
+        int lcm;
+        if(num1 > num2){
+            for(int counter = 1; counter <= num2; counter++){
+                if(num1 % counter == 0 && num2 % counter == 0){
+                    lcm = counter;
+                }
+            }
+        }
+    }
+
     /**
      *
      * @param num1 First integer input
