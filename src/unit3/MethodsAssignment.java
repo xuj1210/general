@@ -9,6 +9,14 @@ public class MethodsAssignment {
         System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
     }
 
+    /**
+     *
+     * @param num1 First integer input
+     * @param num2 Second integer input
+     * @param num3 Third integer input
+     * @return If the three integers are evenly spaced; True or false
+     */
+
     public static boolean evenlySpaced (int num1, int num2, int num3){
         //Define isTrue
         boolean isTrue = false;
