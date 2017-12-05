@@ -4,7 +4,10 @@ import java.util.InputMismatchException;
 
 public class MethodsAssignment {
     public static void main(String[] args){
+        System.out.println("reverse method:");
         reverseTest();
+        System.out.println("");
+        System.out.println("evenlySpaced method");
         evenlySpacedTest();
     }
 
@@ -25,7 +28,7 @@ public class MethodsAssignment {
         return reversed;
     }
 
-    public void reverseTest() {
+    public static void reverseTest() {
         System.out.println("Test 1:");
         System.out.println("reverse('hello')");
         System.out.println("Expected result: olleh");
@@ -50,39 +53,48 @@ public class MethodsAssignment {
      */
 
     public static boolean evenlySpaced (int num1, int num2, int num3){
+        if(num1 != (int)num1 || num2 != (int)num2 || num3 != (int)num3){
+            throw new InputMismatchException("Invalid input. Must be integer values.");
+        }
         //Define isTrue
         boolean isTrue = false;
 
         //Check if the numbers are evenly spaced and return true or false
-        try{
-            if(num2 - num1 == num3 - num2){
+            if(num1 - num2 == num2 - num3) {
                 isTrue = true;
-            }else{
+            }else if(num1 - num3 == num2 - num3) {
+                isTrue = true;
+            }else if(num3 - num1 == num2 - num3){
+                isTrue = true;
+            }else {
                 isTrue = false;
             }
 
         //Stop program if input provided is not an integer
-        }catch(InputMismatchException err){
-            System.out.println("You must enter integers only." + err.getMessage());
-        }
+
         return isTrue;
     }
 
-    public void evenlySpacedTest(){
+    public static void evenlySpacedTest(){
         System.out.println("Test 1:");
-        System.out.println("evenlySpaced(2, 4, 6");
+        System.out.println("evenlySpaced(2, 4, 6)");
         System.out.println("Expected result: true");
         System.out.println("Actual result: " + evenlySpaced(2, 4, 6));
 
         System.out.println("Test 2:");
-        System.out.println("evenlySpaced(20, 2, 11");
+        System.out.println("evenlySpaced(20, 2, 11)");
         System.out.println("Expected result: true");
         System.out.println("Actual result: " + evenlySpaced(20, 2, 11));
 
         System.out.println("Test 3:");
-        System.out.println("evenlySpaced(1, 20, 4");
+        System.out.println("evenlySpaced(y, e, s)");
         System.out.println("Expected result: false");
-        System.out.println("Actual result: " + evenlySpaced(1, 20, 40));
+        try {
+            System.out.println("Actual result: " + evenlySpaced("y", "e", "s"));
+        }catch(InputMismatchException err){
+            System.out.println(err.getMessage());
+    }
     }
 }
+
 
