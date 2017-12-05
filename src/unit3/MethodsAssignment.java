@@ -4,49 +4,16 @@ import java.util.InputMismatchException;
 
 public class MethodsAssignment {
     public static void main(String[] args){
-        //Tests for lcm
-        System.out.println("Test inputs: 8, 10");
-        System.out.println("Expected result: 40");
-        System.out.println("Actual result: " + lcm(8, 10));
-
-        //Tests for evenlySpaced
-        System.out.println("Test 1: Inputs: 1, 2, 3");
-        System.out.println("Expected result: True");
-        System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
     }
 
-    /**
-     * @param num1 First integer input
-     * @param num2 Second integer input
-     * @return Lowest Common Multiple of the two integers
-     */
+    public static String reverse(String word){
+        int wordLength = word.length() - 1;
+        String reversed = "";
 
-    public static int lcm(int num1, int num2){
-        int lcm;
-        int counter;
-
-        if(num1 >= num2){
-            counter = num1;
-            while(true){
-                if(num1 % counter == 0 && num2 % counter == 0){
-                    lcm = counter;
-                    break;
-                }else{
-                    counter++;
-                }
-            }
-        }else {
-            counter = num2;
-            while (true) {
-                if (num1 % counter == 0 && num2 % counter == 0) {
-                    lcm = counter;
-                    break;
-                } else {
-                    counter++;
-                }
-            }
+        for(int counter = wordLength; counter >= 0; counter--){
+            reversed += word.charAt(counter);
         }
-    return lcm;
+        return reversed;
     }
 
 
@@ -70,8 +37,8 @@ public class MethodsAssignment {
             }
 
         //Stop program if input provided is not an integer
-        }catch(InputMismatchException i){
-            System.out.println("Must input integers only. " + i.getMessage());
+        }catch(InputMismatchException err){
+            System.out.println("You must enter integers only." + err.getMessage());
         }
 
     //Return isTrue for the program to use
