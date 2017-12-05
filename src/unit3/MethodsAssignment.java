@@ -11,10 +11,13 @@ public class MethodsAssignment {
      * @param word Word value
      * @return Reversed letter order of the word value
      */
+
     public static String reverse(String word){
+        //Find length of word and define reversed
         int wordLength = word.length() - 1;
         String reversed = "";
 
+        //Loop that adds onto reversed going backwards within the word
         for(int counter = wordLength; counter >= 0; counter--){
             reversed += word.charAt(counter);
         }
