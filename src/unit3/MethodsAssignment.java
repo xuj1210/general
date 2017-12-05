@@ -6,6 +6,11 @@ public class MethodsAssignment {
     public static void main(String[] args){
     }
 
+    /**
+     *
+     * @param word Word value
+     * @return Reversed letter order of the word value
+     */
     public static String reverse(String word){
         int wordLength = word.length() - 1;
         String reversed = "";
