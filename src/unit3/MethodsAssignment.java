@@ -4,10 +4,11 @@ import java.util.InputMismatchException;
 
 public class MethodsAssignment {
     public static void main(String[] args){
+        reverseTest();
+        evenlySpacedTest();
     }
 
     /**
-     *
      * @param word Word value
      * @return Reversed letter order of the word value
      */
@@ -24,6 +25,22 @@ public class MethodsAssignment {
         return reversed;
     }
 
+    public void reverseTest() {
+        System.out.println("Test 1:");
+        System.out.println("reverse('hello')");
+        System.out.println("Expected result: olleh");
+        System.out.println("Actual result: " + reverse("hello"));
+
+        System.out.println("Test 2:");
+        System.out.println("reverse('computer')");
+        System.out.println("Expected result: retupmoc");
+        System.out.println("Actual result: " + reverse("computer"));
+
+        System.out.println("Test 3:");
+        System.out.println("reverse('school is cool')");
+        System.out.println("Expected result: looc si loohcs");
+        System.out.println("Actual result: " + reverse("school is cool"));
+    }
 
     /**
      * @param num1 First integer input
@@ -48,9 +65,24 @@ public class MethodsAssignment {
         }catch(InputMismatchException err){
             System.out.println("You must enter integers only." + err.getMessage());
         }
+        return isTrue;
+    }
 
-    //Return isTrue for the program to use
-    return isTrue;
+    public void evenlySpacedTest(){
+        System.out.println("Test 1:");
+        System.out.println("evenlySpaced(2, 4, 6");
+        System.out.println("Expected result: true");
+        System.out.println("Actual result: " + evenlySpaced(2, 4, 6));
+
+        System.out.println("Test 2:");
+        System.out.println("evenlySpaced(20, 2, 11");
+        System.out.println("Expected result: true");
+        System.out.println("Actual result: " + evenlySpaced(20, 2, 11));
+
+        System.out.println("Test 3:");
+        System.out.println("evenlySpaced(1, 20, 4");
+        System.out.println("Expected result: false");
+        System.out.println("Actual result: " + evenlySpaced(1, 20, 40));
     }
 }
 
