@@ -12,11 +12,17 @@ public class MethodsAssignment {
     }
 
     /**
+     * Reversed the letters of a word
      * @param word Word value
      * @return Reversed letter order of the word value
      */
 
     public static String reverse(String word){
+        //Throws the program if there is no string is inputted
+        if(word.equals("")){
+            throw new InputMismatchException("Invalid input. String value required.");
+        }
+
         //Find length of word and define reversed
         int wordLength = word.length() - 1;
         String reversed = "";
@@ -28,6 +34,9 @@ public class MethodsAssignment {
         return reversed;
     }
 
+    /**
+     * Test the reverse method
+     */
     public static void reverseTest() {
         System.out.println("Test 1:");
         System.out.println("reverse('hello')");
@@ -35,9 +44,9 @@ public class MethodsAssignment {
         System.out.println("Actual result: " + reverse("hello"));
 
         System.out.println("Test 2:");
-        System.out.println("reverse('computer')");
-        System.out.println("Expected result: retupmoc");
-        System.out.println("Actual result: " + reverse("computer"));
+        System.out.println("reverse('')");
+        System.out.println("Expected result: Invalid input. String value required");
+        System.out.println("Actual result: " + reverse(""));
 
         System.out.println("Test 3:");
         System.out.println("reverse('school is cool')");
@@ -46,6 +55,7 @@ public class MethodsAssignment {
     }
 
     /**
+     * Check if three numbers are evenly spaced
      * @param num1 First integer input
      * @param num2 Second integer input
      * @param num3 Third integer input
@@ -53,11 +63,13 @@ public class MethodsAssignment {
      */
 
     public static boolean evenlySpaced (int num1, int num2, int num3){
+        //Throw the program if the values provided are not an integer
         if(num1 != (int)num1 || num2 != (int)num2 || num3 != (int)num3){
             throw new InputMismatchException("Invalid input. Must be integer values.");
         }
+
         //Define isTrue
-        boolean isTrue = false;
+        boolean isTrue;
 
         //Check if the numbers are evenly spaced and return true or false
             if(num1 - num2 == num2 - num3) {
@@ -69,12 +81,12 @@ public class MethodsAssignment {
             }else {
                 isTrue = false;
             }
-
-        //Stop program if input provided is not an integer
-
         return isTrue;
     }
 
+    /**
+     * Test the evenlySpaced method
+     */
     public static void evenlySpacedTest(){
         System.out.println("Test 1:");
         System.out.println("evenlySpaced(2, 4, 6)");
@@ -90,7 +102,7 @@ public class MethodsAssignment {
         System.out.println("evenlySpaced(y, e, s)");
         System.out.println("Expected result: false");
         try {
-            System.out.println("Actual result: " + evenlySpaced("y", "e", "s"));
+            System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
         }catch(InputMismatchException err){
             System.out.println(err.getMessage());
     }
