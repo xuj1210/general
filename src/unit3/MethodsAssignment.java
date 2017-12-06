@@ -3,20 +3,19 @@ package unit3;
 import java.util.InputMismatchException;
 
 public class MethodsAssignment {
-    public static void main(String[] args){
-        System.out.println("reverse method:");
+    public static void main(String[] args) {
+        System.out.println("reverse method test:");
         reverseTest();
         System.out.println("");
-        System.out.println("evenlySpaced method");
+        System.out.println("evenlySpaced method test:");
         evenlySpacedTest();
     }
 
     /**
-     * Reversed the letters of a word
+     * Reverse the letters of a word
      * @param word Word value
      * @return Reversed letter order of the word value
      */
-
     public static String reverse(String word){
         //Throws the program if there is no string is inputted
         if(word.equals("")){
@@ -61,7 +60,6 @@ public class MethodsAssignment {
      * @param num3 Third integer input
      * @return If the three integers are evenly spaced; True or false
      */
-
     public static boolean evenlySpaced (int num1, int num2, int num3){
         //Throw the program if the values provided are not an integer
         if(num1 != (int)num1 || num2 != (int)num2 || num3 != (int)num3){
@@ -76,7 +74,7 @@ public class MethodsAssignment {
                 isTrue = true;
             }else if(num1 - num3 == num2 - num3) {
                 isTrue = true;
-            }else if(num3 - num1 == num2 - num3){
+            }else if(num3 - num1 == num2 - num3) {
                 isTrue = true;
             }else {
                 isTrue = false;
@@ -87,7 +85,7 @@ public class MethodsAssignment {
     /**
      * Test the evenlySpaced method
      */
-    public static void evenlySpacedTest(){
+    public static void evenlySpacedTest() {
         System.out.println("Test 1:");
         System.out.println("evenlySpaced(2, 4, 6)");
         System.out.println("Expected result: true");
@@ -102,10 +100,10 @@ public class MethodsAssignment {
         System.out.println("evenlySpaced(y, e, s)");
         System.out.println("Expected result: false");
         try {
-            System.out.println("Actual result: " + evenlySpaced(1, 2, 3));
+            System.out.println("Actual result: " + evenlySpaced("y", "e", "s"));
         }catch(InputMismatchException err){
             System.out.println(err.getMessage());
-    }
+        }
     }
 }
 
