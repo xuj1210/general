@@ -2,9 +2,6 @@ package unit3;
 
 import java.util.InputMismatchException;
 
-/*
-A program that
- */
 public class MethodsAssignment {
     public static void main(String[] args) {
         System.out.println("reverse Method Test:");
@@ -13,6 +10,7 @@ public class MethodsAssignment {
         System.out.println("evenlySpaced Method Test:");
         evenlySpacedTest();
     }
+
 
     /**
      * Reverse the letters of a word
