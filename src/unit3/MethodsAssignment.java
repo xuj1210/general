@@ -2,12 +2,17 @@ package unit3;
 
 import java.util.InputMismatchException;
 
+/*
+A program which tests two methods; reverse() and evenlySquared()
+Author: Joshua Xu
+ */
+
 public class MethodsAssignment {
     public static void main(String[] args) {
-        System.out.println("reverse Method Test:");
+        System.out.println("reverse() Test:");
         reverseTest();
         System.out.println("");
-        System.out.println("evenlySpaced Method Test:");
+        System.out.println("evenlySpaced() Test:");
         evenlySpacedTest();
     }
 
@@ -18,7 +23,7 @@ public class MethodsAssignment {
      * @return Reversed letter order of the word value
      */
     public static String reverse(String word){
-        //Throws code when provided value is nothing or a space
+        //Throw the program when provided value is nothing or a space
         if(word.equals("") || word.equals(" ")){
             throw new InputMismatchException("Invalid input. String value required");
         }
@@ -42,20 +47,21 @@ public class MethodsAssignment {
         System.out.println("reverse('hello')");
         System.out.println("Expected result: olleh");
         System.out.println("Actual result: " + reverse("hello"));
-
+        System.out.println("");
         System.out.println("Test 2:");
         System.out.println("reverse(' ')");
         System.out.println("Expected result: Invalid input. String value required");
         try {
             System.out.println("Actual result: " + reverse(" "));
         }catch(InputMismatchException err){
-            System.out.println("Actual result: Invalid input. String value required");
+            System.out.println("Actual result: " + err.getMessage());
         }
-
+        System.out.println("");
         System.out.println("Test 3:");
         System.out.println("reverse('school is cool')");
         System.out.println("Expected result: looc si loohcs");
         System.out.println("Actual result: " + reverse("school is cool"));
+        System.out.println("");
     }
 
     /**
@@ -66,9 +72,9 @@ public class MethodsAssignment {
      * @return If the three integers are evenly spaced; True or false
      */
     public static boolean evenlySpaced (int num1, int num2, int num3){
-        //Throw the program if the values provided are not an integer
-        if(num1 != (int)num1 || num2 != (int)num2 || num3 != (int)num3){
-            throw new InputMismatchException("Invalid input. Must be integer values.");
+        //Throw the program if the values provided are the same
+        if(num1 == num2 && num2 == num3){
+            throw new IllegalArgumentException("Invalid input. All values are equal.");
         }
 
         //Define isTrue
@@ -95,21 +101,21 @@ public class MethodsAssignment {
         System.out.println("evenlySpaced(2, 10, 11)");
         System.out.println("Expected result: false");
         System.out.println("Actual result: " + evenlySpaced(2, 10, 11));
-
+        System.out.println("");
         System.out.println("Test 2:");
-        System.out.println("evenlySpaced(20, 2, 11)");
-        System.out.println("Expected result: true");
-        System.out.println("Actual result: " + evenlySpaced(20, 2, 11));
-
+        System.out.println("evenlySpaced(10, 10, 10)");
+        System.out.println("Expected result: Invalid input. All values are equal.");
+        try {
+            System.out.println("Actual result: " + evenlySpaced(10, 10, 10));
+        }catch(IllegalArgumentException eh) {
+            System.out.println("Actual result: " + eh.getMessage());
+        }
+        System.out.println("");
         System.out.println("Test 3:");
         System.out.println("evenlySpaced(1, -13, -6)");
         System.out.println("Expected result: true");
-        try {
-            System.out.println("Actual result: " + evenlySpaced(1, -13, -6));
-        }catch(InputMismatchException err){
-            System.out.println(err.getMessage());
+        System.out.println("Actual result: " + evenlySpaced(1, -13, -6));
         }
-    }
 }
 
 
