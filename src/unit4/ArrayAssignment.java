@@ -15,6 +15,7 @@ public class ArrayAssignment {
 
         System.out.println("");
 
+        //after4()
         System.out.println("after4() Tests:");
         int[] after4Test1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         after4(after4Test1);
@@ -24,6 +25,8 @@ public class ArrayAssignment {
 
         int[] after4Test3 = {10, 9, 8, 7, 6, 5, 4, 3};
         after4(after4Test3);
+
+        System.out.println("");
     }
 
     public static int[] shiftLeft3(int[] numberArray) {
