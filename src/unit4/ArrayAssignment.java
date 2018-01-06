@@ -27,6 +27,19 @@ public class ArrayAssignment {
         after4(after4Test3);
 
         System.out.println("");
+
+        //acromatch()
+        String[] acromatchTest1First = {"Young", "Men's", "Christian", "Association"};
+        String[] acromatchTest1Second = {"You", "Moo", "Cow", "Alphabet"};
+        acromatch(acromatchTest1First, acromatchTest1Second);
+
+        String[] acromatchTest2First = {"U", "S", "o", "A"};
+        String[] acromatchTest2Second = {"U", "S", "A"};
+        acromatch(acromatchTest2First, acromatchTest2Second);
+
+        String[] acromatchTest3First = {"Acromatch", "Yonk", "Kewl"};
+        String[] acromatchTest3Second = {"Woo", "Zoo", "Boo"};
+        acromatch(acromatchTest3First, acromatchTest3Second);
     }
 
     public static int[] shiftLeft3(int[] numberArray) {
@@ -48,6 +61,7 @@ public class ArrayAssignment {
 
         return numberArray;
     }
+
     public static void after4(int[] numberArray){
         int last4Index = 0;
         for(int index = numberArray.length - 1; index >= 0; index--){
@@ -63,6 +77,21 @@ public class ArrayAssignment {
             }
             System.out.print(numberArray[i] + ", ");
         }
+    }
+
+    public static void acromatch(String[] wordArray1, String[] wordArray2){
+        boolean valid = true;
+        for(int counter = 0; counter <= wordArray1.length || counter <= wordArray2.length; counter ++) {
+            if(wordArray1[counter].charAt(0) == wordArray2[counter].charAt(0)) {
+                valid = true;
+                counter++;
+            }
+            else if(wordArray1[counter].charAt(0) != wordArray2[counter].charAt(0)) {
+                valid = false;
+                break;
+            }
+        }
+        System.out.println(valid);
     }
 
 }
