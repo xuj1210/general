@@ -37,7 +37,7 @@ public class ArrayAssignment {
         String[] acromatchTest2Second = {"U", "S", "A"};
         acromatch(acromatchTest2First, acromatchTest2Second);
 
-        String[] acromatchTest3First = {"Acromatch", "Yonk", "Kewl"};
+        String[] acromatchTest3First = {"Acromatch"};
         String[] acromatchTest3Second = {"Woo", "Zoo", "Boo"};
         acromatch(acromatchTest3First, acromatchTest3Second);
     }
@@ -81,7 +81,7 @@ public class ArrayAssignment {
 
     public static void acromatch(String[] wordArray1, String[] wordArray2){
         boolean valid = true;
-        for(int counter = 0; counter <= wordArray1.length || counter <= wordArray2.length; counter ++) {
+        for(int counter = 0; counter <= wordArray1.length - 1 || counter <= wordArray2.length - 1; counter ++) {
             if(wordArray1[counter].charAt(0) == wordArray2[counter].charAt(0)) {
                 valid = true;
                 counter++;
