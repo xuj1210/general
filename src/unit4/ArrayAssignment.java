@@ -94,5 +94,14 @@ public class ArrayAssignment {
         System.out.println(valid);
     }
 
+    public static void diagonal(int number){
+        int[][] squareArray;
+        squareArray = new int[number][number];
+        int numberOutputted;
+        int counter = number - 1;
+
+
+    }
 }
+
 
