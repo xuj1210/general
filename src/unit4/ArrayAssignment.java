@@ -100,7 +100,21 @@ public class ArrayAssignment {
         int numberOutputted;
         int counter = number - 1;
 
+        for(int index1 = 0; index1 < number; index1++){
+            numberOutputted = 0;
+            for(int index2 = 0; index2 < number; index2++){
+                if(index2 == counter){
+                    squareArray[index1][index2] = 1;
+                    numberOutputted = 2;
+                }else{
+                    squareArray[index1][index2] = numberOutputted;
+                }
 
+                System.out.print(" " + squareArray[index1][index2]);
+            }
+            System.out.println("");
+            counter--;
+        }
     }
 }
 
