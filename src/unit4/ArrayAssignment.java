@@ -29,6 +29,7 @@ public class ArrayAssignment {
         System.out.println("");
 
         //acromatch()
+        System.out.println("acromatch() Tests:");
         String[] acromatchTest1First = {"Young", "Men's", "Christian", "Association"};
         String[] acromatchTest1Second = {"You", "Moo", "Cow", "Alphabet"};
         acromatch(acromatchTest1First, acromatchTest1Second);
@@ -40,6 +41,18 @@ public class ArrayAssignment {
         String[] acromatchTest3First = {"Acromatch"};
         String[] acromatchTest3Second = {"Woo", "Zoo", "Boo"};
         acromatch(acromatchTest3First, acromatchTest3Second);
+
+        System.out.println("");
+
+        //diagonal()
+        System.out.println("diagonal() Tests:");
+        diagonal(3);
+        System.out.println("");
+
+        diagonal(5);
+        System.out.println("");
+
+        diagonal(8);
     }
 
     public static int[] shiftLeft3(int[] numberArray) {
