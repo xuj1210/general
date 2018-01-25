@@ -13,6 +13,7 @@ public class grade11CPT {
 
     public static void main(String[] args){
         roomNames = new String[]{"", "Entrance", "", "", "", "Vine Room", "Sun Lit Hallway", "Hidden Room", "Dead End", "Plant Room", "Cracked Room", "Bone Room", "", "Throne Room", "Statue Hallway", "Small Room", "", "Tree Hallway", "Ritual Room", "Chest Room", "", "Plain Room", "", ""};
+        roomDescriptions = new String[22];
         roomDescriptions[1] = "You are in a long lost jungle temple looking for the rumored chest of the ancient king. In order to plunder the goods, you must solve the password that unlocks the door to the room with the chest. Clues are within the various rooms. Good luck! Start by going North. (n): ";
         roomDescriptions[5] = "You are in a room full of vines, with hallways leading North and East. Which way do you go? (n / e): ";
         roomDescriptions[6] = "This is a sun lit hallway, with passages leading North, East, and West. Which way do you go? (n / e / w): ";
@@ -29,7 +30,7 @@ public class grade11CPT {
         roomDescriptions[19] = "You have made it to the Chest Room! You open the chest and take all the goods within. Congratulations explorer!";
         roomDescriptions[21] = "There is nothing within the room except a note which reads, “ruoloc a si ti” You must return to the room you were in. (s):";
 
-        roomDirections = new int[21][4];
+        roomDirections = new int[22][4];
         roomDirections[1] = new int[]{5, -1, -1, -1};
         roomDirections[5] = new int[]{9, 6, -1, -1};
         roomDirections[6] = new int[]{10, 7, -1, 5};
@@ -61,9 +62,9 @@ public class grade11CPT {
 
     }
 
-    public static void roomDescription(int roomNumber){
-        System.out.println(roomNames[roomNumber]);
-        System.out.println(roomDescriptions[roomNumber]);
+    public static void roomDescription(int currentRoom){
+        System.out.println(roomNames[currentRoom]);
+        System.out.println(roomDescriptions[currentRoom]);
     }
 
     public static String userInput(){
