@@ -48,40 +48,41 @@ public class grade11CPT {
         roomDirections[21] = new int[]{-1, -1, 17, -1};
 
         int currentRoom = 1;
-        while(!done){
+        try{while(!done) {
             roomDescription(currentRoom);
-            endCheck(currentRoom);
-            try {
-                userSelectedRoomStr = (userInput());
+            done = endCheck(currentRoom);
+            userSelectedRoomStr = (userInput());
 
-                if (userSelectedRoomStr.equals("n")) {
-                    currentRoom = roomDirections[currentRoom][0];
-                    if(currentRoom == -1){
-                        throw new InputMismatchException("Invalid Direction. You can not go there.");
-                    }
-                } else if (userSelectedRoomStr.equals("e")) {
-                    currentRoom = roomDirections[currentRoom][1];
-                    if(currentRoom == -1){
-                        throw new InputMismatchException("Invalid Direction. You can not go there.");
-                    }
-                } else if (userSelectedRoomStr.equals("s")) {
-                    currentRoom = roomDirections[currentRoom][2];
-                    if(currentRoom == -1){
-                        throw new InputMismatchException("Invalid Direction. You can not go there.");
-                    }
-                } else {
-                    currentRoom = roomDirections[currentRoom][3];
-                    if(currentRoom == -1){
-                        throw new InputMismatchException("Invalid Direction. You can not go there.");
-                    }
+            if (userSelectedRoomStr.equals("n")) {
+                currentRoom = roomDirections[currentRoom][0];
+                if (currentRoom == -1) {
+                    throw new InputMismatchException("Invalid Direction. You can not go there.");
                 }
+            } else if (userSelectedRoomStr.equals("e")) {
+                currentRoom = roomDirections[currentRoom][1];
+                if (currentRoom == -1) {
+                    throw new InputMismatchException("Invalid Direction. You can not go there.");
+                }else if(currentRoom == 19){
+                    done = passwordChecker();
+                }
+            } else if (userSelectedRoomStr.equals("s")) {
+                currentRoom = roomDirections[currentRoom][2];
+                if (currentRoom == -1) {
+                    throw new InputMismatchException("Invalid Direction. You can not go there.");
+                }
+            } else {
+                currentRoom = roomDirections[currentRoom][3];
+                if (currentRoom == -1) {
+                    throw new InputMismatchException("Invalid Direction. You can not go there.");
+                }
+            }
+        }
             }catch(InputMismatchException invalidDirection){
-                System.out.println(invalidDirection);
+                System.out.println(invalidDirection.getMessage());
             }
             System.out.println("");
         }
 
-    }
 
     public static void roomDescription(int currentRoom){
         System.out.println(roomNames[currentRoom]);
@@ -99,9 +100,10 @@ public class grade11CPT {
         return done;
     }
 
-    public static boolean passwordChecker(String userGuess){
+    public static boolean passwordChecker(){
         boolean passwordCorrect;
-
+        String userGuess;
+        System.out.println("What is the password: ");
         userGuess = scan.nextLine();
         if(userGuess == "green"){
             passwordCorrect = true;
