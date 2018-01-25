@@ -6,15 +6,15 @@ public class grade11CPT {
     static String[] roomDescriptions;
     static int[][] roomDirections;
     static Scanner scan = new Scanner(System.in);
-    static int currentRoom = 1;
-    static int nextRoom = -1;
+    static int currentRoom;
+    static int nextRoom;
     static String userSelectedRoomStr;
     static boolean done = false;
 
     public static void main(String[] args){
         roomNames = new String[]{"", "Entrance", "", "", "", "Vine Room", "Sun Lit Hallway", "Hidden Room", "Dead End", "Plant Room", "Cracked Room", "Bone Room", "", "Throne Room", "Statue Hallway", "Small Room", "", "Tree Hallway", "Ritual Room", "Chest Room", "", "Plain Room", "", ""};
         roomDescriptions = new String[22];
-        roomDescriptions[1] = "You are in a long lost jungle temple looking for the rumored chest of the ancient king. In order to plunder the goods, you must solve the password that unlocks the door to the room with the chest. Clues are within the various rooms. Good luck! Start by going North. (n): ";
+        roomDescriptions[1] = "You are in a long lost jungle temple looking for the rumored chest of the ancient king. In order to plunder the goods, you must solve the password that unlocks the door to the room with the chest.\n" + "Clues can be found within the various rooms. Good luck! Start by going North. (n): ";
         roomDescriptions[5] = "You are in a room full of vines, with hallways leading North and East. Which way do you go? (n / e): ";
         roomDescriptions[6] = "This is a sun lit hallway, with passages leading North, East, and West. Which way do you go? (n / e / w): ";
         roomDescriptions[7] = "You find a note on the ground. It says, “The secret word is an adjective.” There are no new passages. You must go back west. (w): ";
@@ -46,9 +46,10 @@ public class grade11CPT {
         roomDirections[18] = new int[]{-1, 19, 14, 17};
         roomDirections[21] = new int[]{-1, -1, 17, -1};
 
-        while(done){
+        int currentRoom = 1;
+        while(!done){
             roomDescription(currentRoom);
-            userInput();
+            userSelectedRoomStr = (userInput());
             if(userSelectedRoomStr.equals("n")){
                 currentRoom += 4;
             }else if(userSelectedRoomStr.equals("e")){
@@ -58,6 +59,7 @@ public class grade11CPT {
             }else{
                 currentRoom -= 1;
             }
+            System.out.println("");
         }
 
     }
@@ -68,8 +70,7 @@ public class grade11CPT {
     }
 
     public static String userInput(){
-        userSelectedRoomStr = scan.nextLine();
-        return userSelectedRoomStr;
+        return scan.nextLine();
     }
 
     public static boolean passwordChecker(String userGuess){
