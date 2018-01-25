@@ -11,6 +11,8 @@ public class grade11CPT {
     static int nextRoom;
     static String userSelectedRoomStr;
     static boolean done = false;
+    static int passwordAttempts = 0;
+    static boolean passwordCorrect;
 
     public static void main(String[] args){
         roomNames = new String[]{"", "Entrance", "", "", "", "Vine Room", "Sun Lit Hallway", "Hidden Room", "Dead End", "Plant Room", "Cracked Room", "Bone Room", "", "Throne Room", "Statue Hallway", "Small Room", "", "Tree Hallway", "Ritual Room", "Chest Room", "", "Plain Room", "", ""};
@@ -23,7 +25,7 @@ public class grade11CPT {
         roomDescriptions[9] = "You are in a large room with vegetation sprouting from the ground. There are doors leading East, South and West.\nWhich way do you go? (e / s / w): ";
         roomDescriptions[10] = "You are in a room with large cracks running along the walls and ceiling, with sunlight seeping through the cracks. There are doors leading North, East, South, and West.\nWhich way do you go? (n / e / s / w): ";
         roomDescriptions[11] = "There are skeletons scattered everywhere around the ground. “The password is one of the components of a unique arc within the sky that appears after rain.” There are doors to the North and West.\nWhich way do you go? (n / w): ";
-        roomDescriptions[13] = "There appears to be a throne in a corner of the room. There are areas to the North and East.\nWhich way do you go? (n / e): ";
+        roomDescriptions[13] = "There is a throne in a corner of the room. There are areas to the North and East.\nWhich way do you go? (n / e): ";
         roomDescriptions[14] = "You are in a hallway with statues everywhere. There are exits to the North, East, South, and West.\nWhich way do you go? (n / e / s / w): ";
         roomDescriptions[15] = "You are in a room much smaller than normal. There are passages leading to the South and West.\nWhich way do you go? (s / w): ";
         roomDescriptions[17] = "You are in a hallway with a large tree in the center. Inscribed on the tree there is a message which reads, “The password can be used to represent life.” There are areas to the North, East, and South.\nWhich way do you go? (n / e / s): ";
@@ -48,39 +50,60 @@ public class grade11CPT {
         roomDirections[21] = new int[]{-1, -1, 17, -1};
 
         int currentRoom = 1;
-        try{while(!done) {
-            roomDescription(currentRoom);
-            done = endCheck(currentRoom);
-            userSelectedRoomStr = (userInput());
+            try{while(!done && passwordAttempts <= 3) {
+                roomDescription(currentRoom);
+                done = endCheck(currentRoom);
+                userSelectedRoomStr = (userInput());
+                System.out.println("");
+                if(passwordAttempts == 3){
+                    System.out.println("Careful! You only have one more attempt for the password!");
+                }
 
-            if (userSelectedRoomStr.equals("n")) {
-                currentRoom = roomDirections[currentRoom][0];
-                if (currentRoom == -1) {
-                    throw new InputMismatchException("Invalid Direction. You can not go there.");
-                }
-            } else if (userSelectedRoomStr.equals("e")) {
-                currentRoom = roomDirections[currentRoom][1];
-                if (currentRoom == -1) {
-                    throw new InputMismatchException("Invalid Direction. You can not go there.");
-                }else if(currentRoom == 19){
-                    done = passwordChecker();
-                }
-            } else if (userSelectedRoomStr.equals("s")) {
-                currentRoom = roomDirections[currentRoom][2];
-                if (currentRoom == -1) {
-                    throw new InputMismatchException("Invalid Direction. You can not go there.");
-                }
-            } else {
-                currentRoom = roomDirections[currentRoom][3];
-                if (currentRoom == -1) {
-                    throw new InputMismatchException("Invalid Direction. You can not go there.");
+                if (userSelectedRoomStr.equals("n")) {
+                    currentRoom = roomDirections[currentRoom][0];
+                    if (currentRoom == -1) {
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
+                } else if (userSelectedRoomStr.equals("e")) {
+                    currentRoom = roomDirections[currentRoom][1];
+                    if (currentRoom == -1) {
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }else if(currentRoom == 19) {
+                        passwordChecker();
+                        System.out.println("");
+                        if (passwordCorrect) {
+                            roomDescription(currentRoom);
+                            break;
+                        } else if (passwordAttempts < 3) {
+                            currentRoom = 18;
+                            System.out.println("You got the password wrong. Look around the temple for more clues.");
+                            System.out.println("");
+                            passwordAttempts++;
+                        } else {
+                            currentRoom = 0;
+                            System.out.println("You got the password incorrect too many times and the temple began to crumble, forcing you to evacuate.\nBetter luck next time!");
+                            done = true;
+                        }
+
+                    }
+                } else if (userSelectedRoomStr.equals("s")) {
+                    currentRoom = roomDirections[currentRoom][2];
+                    if (currentRoom == -1) {
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
+                } else {
+                    currentRoom = roomDirections[currentRoom][3];
+                    if (currentRoom == -1) {
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
                 }
             }
-        }
             }catch(InputMismatchException invalidDirection){
                 System.out.println(invalidDirection.getMessage());
             }
+
             System.out.println("");
+
         }
 
 
@@ -101,11 +124,10 @@ public class grade11CPT {
     }
 
     public static boolean passwordChecker(){
-        boolean passwordCorrect;
         String userGuess;
         System.out.println("What is the password: ");
         userGuess = scan.nextLine();
-        if(userGuess == "green"){
+        if(userGuess.equals("green")){
             passwordCorrect = true;
         }
         else{
