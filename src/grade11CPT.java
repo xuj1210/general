@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class grade11CPT {
 
@@ -50,18 +51,32 @@ public class grade11CPT {
         while(!done){
             roomDescription(currentRoom);
             endCheck(currentRoom);
-            userSelectedRoomStr = (userInput());
-            if(userSelectedRoomStr.equals("n")) {
-                currentRoom = roomDirections[currentRoom][0];
-            }
-            else if(userSelectedRoomStr.equals("e")){
-                currentRoom = roomDirections[currentRoom][1];
-            }
-            else if(userSelectedRoomStr.equals("s")){
-                currentRoom = roomDirections[currentRoom][2];
-            }
-            else{
-                currentRoom = roomDirections[currentRoom][3];
+            try {
+                userSelectedRoomStr = (userInput());
+
+                if (userSelectedRoomStr.equals("n")) {
+                    currentRoom = roomDirections[currentRoom][0];
+                    if(currentRoom == -1){
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
+                } else if (userSelectedRoomStr.equals("e")) {
+                    currentRoom = roomDirections[currentRoom][1];
+                    if(currentRoom == -1){
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
+                } else if (userSelectedRoomStr.equals("s")) {
+                    currentRoom = roomDirections[currentRoom][2];
+                    if(currentRoom == -1){
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
+                } else {
+                    currentRoom = roomDirections[currentRoom][3];
+                    if(currentRoom == -1){
+                        throw new InputMismatchException("Invalid Direction. You can not go there.");
+                    }
+                }
+            }catch(InputMismatchException invalidDirection){
+                System.out.println(invalidDirection);
             }
             System.out.println("");
         }
