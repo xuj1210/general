@@ -15,15 +15,15 @@ public class grade11CPT {
         roomNames = new String[]{"", "Entrance", "", "", "", "Vine Room", "Sun Lit Hallway", "Hidden Room", "Dead End", "Plant Room", "Cracked Room", "Bone Room", "", "Throne Room", "Statue Hallway", "Small Room", "", "Tree Hallway", "Ritual Room", "Chest Room", "", "Plain Room", "", ""};
         roomDescriptions[1] = "You are in a long lost jungle temple looking for the rumored chest of the ancient king. In order to plunder the goods, you must solve the password that unlocks the door to the room with the chest. Clues are within the various rooms. Good luck! Start by going North. (n): ";
         roomDescriptions[5] = "You are in a room full of vines, with hallways leading North and East. Which way do you go? (n / e): ";
-        roomDescriptions[6] = "This is a sun lit hallway, with passages leading North and East. Which way do you go? (n / e): ";
+        roomDescriptions[6] = "This is a sun lit hallway, with passages leading North, East, and West. Which way do you go? (n / e / w): ";
         roomDescriptions[7] = "You find a note on the ground. It says, “The secret word is an adjective.” There are no new passages. You must go back west. (w): ";
         roomDescriptions[8] = "This room is a dead end. However, there is a note on the ground. It reads, “The last letter of the password is ‘n’.” You may only go back to the last room you were in. (e): ";
-        roomDescriptions[9] = "You are in a large room with vegetation sprouting from the ground. There are doors leading East, South and West. Which way do you go? (se / s / w): ";
+        roomDescriptions[9] = "You are in a large room with vegetation sprouting from the ground. There are doors leading East, South and West. Which way do you go? (e / s / w): ";
         roomDescriptions[10] = "You are in a room with large cracks running along the walls and ceiling, with sunlight seeping through the cracks. There are doors leading North, East, South, and West. Which way do you go? (n / e / s / w): ";
-        roomDescriptions[11] = "There are skeletons scattered everywhere around the ground. “The password is one of the components of a unique arc within the sky that appears after rain.” There are doors to the North, South, and West. Which way do you go? (n / s / w): ";
-        roomDescriptions[13] = "There appears to be a throne in a corner of the room. There are areas to the North, East, and South. Which way do you go? (n / e / s): ";
+        roomDescriptions[11] = "There are skeletons scattered everywhere around the ground. “The password is one of the components of a unique arc within the sky that appears after rain.” There are doors to the North and West. Which way do you go? (n / w): ";
+        roomDescriptions[13] = "There appears to be a throne in a corner of the room. There are areas to the North and East. Which way do you go? (n / e): ";
         roomDescriptions[14] = "You are in a hallway with statues everywhere. There are exits to the North, East, South, and West. Which way do you go? (n / e / s / w): ";
-        roomDescriptions[15] = "You are in a room much smaller than normal. To the North there is a door that is locked. It requires a password. There are also passages leading to the South and West. Which way do you go? (n / s / w): ";
+        roomDescriptions[15] = "You are in a room much smaller than normal. There are passages leading to the South and West. Which way do you go? (s / w): ";
         roomDescriptions[17] = "You are in a hallway with a large tree in the center. Inscribed on the tree there is a message which reads, “The password can be used to represent life.” There are areas to the North, East, and South. Which way do you go? (n / e / s): ";
         roomDescriptions[18] = "You are in what appears to be a communal area with ritual materials from the previous inhabitants. There is a large adorned door to the East which requires a password. There are also doors to the South and West. Which way do you go? (e / s / w): ";
         roomDescriptions[19] = "You have made it to the Chest Room! You open the chest and take all the goods within. Congratulations explorer!";
@@ -37,11 +37,26 @@ public class grade11CPT {
         roomDirections[8] = new int[]{-1, 9, -1, -1};
         roomDirections[9] = new int[]{-1, 10, 5, 8};
         roomDirections[10] = new int[]{14, 11, 6, 9};
-        roomDirections[11] = new int[]{};
+        roomDirections[11] = new int[]{15, -1, -1, 10};
+        roomDirections[13] = new int[]{17, 14, -1, -1};
+        roomDirections[14] = new int[]{18, 15, 10, 13};
+        roomDirections[15] = new int[]{-1, -1, 11, 14};
+        roomDirections[17] = new int[]{21, 18, 13, -1};
+        roomDirections[18] = new int[]{-1, 19, 14, 17};
+        roomDirections[21] = new int[]{-1, -1, 17, -1};
 
         while(done){
             roomDescription(currentRoom);
             userInput();
+            if(userSelectedRoomStr.equals("n")){
+                currentRoom += 4;
+            }else if(userSelectedRoomStr.equals("e")){
+                currentRoom += 1;
+            }else if(userSelectedRoomStr.equals("s")){
+                currentRoom -= 4;
+            }else{
+                currentRoom -= 1;
+            }
         }
 
     }
